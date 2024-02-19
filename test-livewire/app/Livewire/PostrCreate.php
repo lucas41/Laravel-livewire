@@ -21,7 +21,7 @@ class PostrCreate extends Component
         ]);
 
         $this->form->resetform();
-        session()->flash('success', 'Post successfully created.');
+        session()->flash('success', 'Post criado com sucesso.');
     }
     public function render()
     {
