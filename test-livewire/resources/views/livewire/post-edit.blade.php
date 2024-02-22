@@ -120,7 +120,7 @@
                                 @enderror
                                 {{-- TODO:PROGRESS BAR HERE --}}
                                 @if($photo)
-                                    <img src=" {{ $photo->temporaryUrl() }}" width="100%">
+                                    <img src="{{ $photo->temporaryUrl() }}" width="100%">
                                 @endif
                                 <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true" x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-error="uploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                                     <div x-show="uploading">

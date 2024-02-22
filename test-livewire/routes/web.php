@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post', [HomeController::class, 'index'])->name('index');
+Route::get('/index', [HomeController::class, 'index'])->name('index');
+Route::get('/post', [PostController::class, 'mostrar'])->name('mostra_post');
 Route::get('/post/create', [PostController::class, 'create'])->name('post_create');
 Route::get('/post/edit/{post}', [PostController::class, 'edit'])->name('post.edit');
 Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');

@@ -10,15 +10,20 @@
     @livewireStyles
     @yield('css')
 </head>
+<style>
+    .active-link {
+        color: blue !important;
+    }
+</style>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Navbar</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{ route('post_create') }}">Post create</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link {{ request()->is('post/create') ? 'active-link' : '' }}" aria-current="page" href="{{ route('mostra_post') }}">Post create</a>
+                <a class="nav-link {{ request()->is('index') ? 'active-link' : '' }}" href="{{ route('index') }}">Filtro de usuarios</a>
+                <a class="nav-link {{ request()->is('pricing') ? 'active-link' : '' }}" href="#">Pricing</a>
             </div>
         </div>
     </div>

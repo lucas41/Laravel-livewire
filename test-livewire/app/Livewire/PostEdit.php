@@ -29,21 +29,14 @@ class PostEdit extends Component
 
     public function updatedPhoto()
     {
-        if(!in_array($this->photo->extension(),['png', 'jpeg'])) {
+        if(!in_array($this->photo->extension(),['png', 'jpeg', 'jpg'])) {
             $this->photo = null;
         }
     }
 
     public function update()
     {
-        try {
-            $this->validate();
-        } catch (\Exception $e) {
-            $this->js(<<<JS
-            swal.fire('Falha ao validar o post', '', 'error');
-        JS);
-            return;
-        }
+        $this->validate();
         $success = Post::where('id', $this->post->id)->update([
             'title' => $this->title,
             'content' => $this->content,
